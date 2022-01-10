@@ -1,0 +1,16 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  width: 100vw;
+  height: 100vh;
+}
+
+html{
+  box-sizing: border-box;
+}
+
+/* untuk style effect salju */
+#particles-js {
+  z-index: 1;
+  position: absolute;
+}
