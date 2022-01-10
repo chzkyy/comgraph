@@ -52,15 +52,15 @@ const initialize = () => {
   rightlittleFinger.position.set(10.5, 5.5, -30);
 
   const leftEye = objekBolaHitam();
-  leftEye.position.set(-1, 9, -25);
+  leftEye.position.set(-1, 9, -27);
   leftEye.scale.set(0.5, 0.5, 0.5);
   
   const rightEye = objekBolaHitam();
-  rightEye.position.set(1, 9, -25);
+  rightEye.position.set(1, 9, -27);
   rightEye.scale.set(0.5, 0.5, 0.5);
 
   const carrotNose = objekHidung();
-  carrotNose.position.set(0, 8, -25);
+  carrotNose.position.set(0, 8, -27);
   carrotNose.scale.set(0.5, 0.5, 0.5);
   
   //grouping object Badan
@@ -94,7 +94,34 @@ const initialize = () => {
   snowmanFull.add(rightFullHand);
   snowmanFull.add(face);
   scene.add(snowmanFull);
+  
+  const treeTrunk = objekBatang();
+  treeTrunk.position.set(50, 10, -100);
 
+  const treeLeaves1 = objekDaunPohon();
+  treeLeaves1.position.set(50, 7, -100);
+
+  const treeLeaves2 = objekDaunPohon();
+  treeLeaves2.position.set(50, 14, -100);
+  
+  const treeLeaves3 = objekDaunPohon();
+  treeLeaves3.position.set(50, 21, -100);
+
+  const treeLeaves4 = objekDaunPohon();
+  treeLeaves4.position.set(50, 28, -100);
+
+  const treeLeaves5 = objekDaunPohon();
+  treeLeaves5.position.set(50, 35, -100);
+  
+  const Tree = new THREE.Group();
+  Tree.add(treeTrunk);
+  Tree.add(treeLeaves1);
+  Tree.add(treeLeaves2);
+  Tree.add(treeLeaves3);
+  Tree.add(treeLeaves4);
+  Tree.add(treeLeaves5);
+  scene.add(Tree);
+  
   const render = () => {
       requestAnimationFrame(render);
       controls.update();
@@ -265,6 +292,26 @@ const objekHidung = () => {
   return hidung;
 }
 /* END: Fungsi membuat objek Snowman */
+
+/* START: Buat fungsi tampilkan 3d object pohon pinus*/
+const objekDaunPohon = () =>{
+  const bentukLimas = new THREE.ConeGeometry(20, 10, 6);
+  const material = new THREE.MeshPhongMaterial();
+  const daun = new THREE.Mesh(bentukLimas, material);
+  daun.material.color.set(0x355829);
+  //Mugal Green
+  return daun;
+}
+
+const objekBatang = () => {
+  const bentukTabung = new THREE.CylinderGeometry(2, 2, 50, 32);
+  const material = new THREE.MeshPhongMaterial();
+  const batang = new THREE.Mesh(bentukTabung, material);
+  batang.material.color.set(0x4F1916);
+  //Chocolate Cosmos
+  return batang;
+}
+/* END: Fungsi membuat objek pohon pinus */
 
 // untuk memanggil init
 initialize();
