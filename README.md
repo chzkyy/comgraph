@@ -20,4 +20,4 @@
 </table>
 
 
-Link preview : https://comgraph.netlify.app
+Link preview project : https://comgraph.netlify.app
